@@ -1,0 +1,96 @@
+<%- include('portals/header') %>
+
+
+<div class="bg-dark">
+<%- include('portals/membermenu') %>
+<h1 class="text-light p-4">Hello <%= userobj.name %></h1>
+    <div class="bg-dark py-5 d-flex justify-content-center">
+        <div class="col-lg-9 col-11 d-inline-block">
+            <div class="bg-danger  p-5" id="home">
+                <div class="bg-dark my-5 text-center p-4 w-lg-50 w-100 m-auto shadow">
+                    <h1 class="text-info my-2">Your personal balance (Taka)</h1>
+                    <a class="text-light fs-3 text-decoration-none py-2 px-4 my-2 d-inline-block"><%= userobj.mailbalance %></a>
+                </div>
+                <div class="bg-dark my-5 text-center p-4 w-lg-50 w-100 m-auto shadow">
+                    <h1 class="text-info my-2">Order complete</h1>
+                    <a class="text-light fs-3 text-decoration-none py-2 px-4 my-2 d-inline-block"><%= userobj.allordercomplete %></a>
+                </div>
+            </div>
+
+            <div class="bg-danger shadow rounded p-5" id="process">
+
+            </div>
+    
+            <div class="bg-danger shadow rounded p-5" id="completed">
+                <div class="bg-dark my-2 p-2 d-flex justify-content-center">
+                    <h3 class="w-50 text-light d-inline-block">Pizza the best one</h3>
+                    <button class="py-1 rounded bg-danger shadow rounded px-4 fs-5">View</button>
+                    <button class="py-1 rounded bg-dark shadow rounded px-4 fs-5">Completed</button>
+                </div>
+                <div class="bg-dark my-2 p-2 d-flex justify-content-center">
+                    <h3 class="w-50 text-light d-inline-block">Pizza the best one</h3>
+                    <button class="py-1 rounded bg-danger shadow rounded px-4 fs-5">View</button>
+                    <button class="py-1 rounded bg-dark shadow rounded px-4 fs-5">Completed</button>
+                </div>
+                <div class="bg-dark my-2 p-2 d-flex justify-content-center">
+                    <h3 class="w-50 text-light d-inline-block">Pizza the best one</h3>
+                    <button class="py-1 rounded bg-danger shadow rounded px-4 fs-5">View</button>
+                    <button class="py-1 rounded bg-dark shadow rounded px-4 fs-5">Completed</button>
+                </div>
+                <div class="bg-dark my-2 p-2 d-flex justify-content-center">
+                    <h3 class="w-50 text-light d-inline-block">Pizza the best one</h3>
+                    <button class="py-1 rounded bg-danger shadow rounded px-4 fs-5">View</button>
+                    <button class="py-1 rounded bg-dark shadow rounded px-4 fs-5">Completed</button>
+                </div>
+                <div class="bg-dark my-2 p-2 d-flex justify-content-center">
+                    <h3 class="w-50 text-light d-inline-block">Pizza the best one</h3>
+                    <button class="py-1 rounded bg-danger shadow rounded px-4 fs-5">View</button>
+                    <button class="py-1 rounded bg-dark shadow rounded px-4 fs-5">Completed</button>
+                </div>
+    
+            </div>
+    
+            <div class="bg-danger shadow rounded p-5" id="pay">
+                <div class="text-center my-5 shadow w-75 m-auto">
+                    <h2 class="text-light">Totay's our benifit</h2>
+                    <button class="bg-dark text-light fs-4 m-4 py-2 px-4"><%= userobj.todayincome %> tk</button>
+                </div>
+                <div class=" my-5 shadow w-100 m-auto">
+                    <div class="d-flex justify-content-center border p-2">
+                        <span class="w-75 text-info d-inline-block">Total order completed</span>
+                        <span class="w-25 text-center text-light d-inline-block"><%= userobj.allordercomplete %></span>
+                    </div>
+                    <div class="d-flex justify-content-center border p-2">
+                        <span class="w-75 text-info d-inline-block">Today order completed</span>
+                        <span class="w-25 text-center text-light d-inline-block"><%= userobj.todayordercomolete %></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-danger shadow rounded p-5" id="sup">
+                <div class="my-5">
+                    <h4 class="text-info">Call us,</h4>
+                    <div>
+                        <span class="d-block text-light">01795444079</span>
+                        <span class="d-block text-light">01795444079</span>
+                        <span class="d-block text-light">01795444079</span>
+                        <span class="d-block text-light">01795444079</span>
+                        <button class="bg-dark text-light">Add phone number</button>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <h4 class="text-info">Email us,</h4>
+                    <div>
+                        <span class="d-block text-light">quackteam@gmail.com</span>
+    
+                        <button class="bg-dark text-light">Add email</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> 
+    
+</div>
+
+

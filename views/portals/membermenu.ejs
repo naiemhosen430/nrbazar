@@ -1,0 +1,49 @@
+
+
+<div class="py-0  sticky-top bg-danger">
+    <div class="p-2 d-none col-9 d-none d-lg-inline-block sticky-top mx-4">
+        <ul class="nav bg-danger">
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="homebutton"><a class="nav-link" href="/profile/<%= userobj.useridlog %>">profile</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="homebutton"><a class="nav-link" href="#home">Dasboad</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="confirmm"><a class="nav-link" href="/seeorder/<%= userobj.useridlog %>">order</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="confirmm"><a class="nav-link" href="/confirmedorderforme/<%= userobj.useridlog %>">Confirmed order</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="payy"><a class="nav-link" href="#pay">Payment</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="repp"><a class="nav-link" href="#sup">Support</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="repp"><a class="nav-link" href="/logout">Log out</a></li>
+        </ul>
+    </div>
+    <div class="p-2 col-6 d-inline-block d-lg-none sticky-top mx-4">
+        <div class="bg-danger">
+            <ul>
+                <li style="list-style: none; cursor: pointer;" class="text-light fs-5 text-bolder bg-success d-inline-block rounded py-1 mt-2 px-4 text-center menu_button" onclick="shownox()">Menu</li>
+            </ul>
+        </div>
+        <ul class="nav menu_box w-100 bg-danger" id="menu_box">
+            <li style="cursor: pointer;" class="nav-item w-100 px-2 cursor-pointer text-light" id="closemenu" onclick="closemenu()">+</li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="homebutton"><a class="nav-link" href="/profile/<%= userobj.useridlog %>">profile</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="homebutton"><a class="nav-link" href="#home">Dasboad</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="confirmm"><a class="nav-link" href="/seeorder/<%= userobj.location %>">order</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="completedd"><a class="nav-link" href="/confirmedorderforme/<%= userobj.useridlog %>">confirmed order</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="payy"><a class="nav-link" href="#pay">Payment</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="repp"><a class="nav-link" href="#sup">Support</a></li>
+            <li style="cursor: pointer;" class="nav-item bg-danger fs-6 px-2 cursor-pointer text-light" id="repp"><a class="nav-link" href="/logout">Log out</a></li>
+        </ul>
+    </div>
+    <div class="d-inline-block col-lg-2 col-4">
+        <a class="text-bolder text-center text-light px-4 py-2 text-decoration-none rounded shadow border" href="/loginhome">Back to home</a>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    
+    function shownox() {
+        menu_box.style.display = "block";
+    }
+    function closemenu() {
+        menu_box.style.display = "none";
+    }
+</script>

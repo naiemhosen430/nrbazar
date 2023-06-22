@@ -1,0 +1,16 @@
+<%- include('portals/header') %>
+
+
+<section class="bg-dark p-1">
+    <div class="col-8 p-4 m-auto shadow rounded">
+        <form class="p-4 m-4" action="/finishorderbyadminof/<%= userobj.useridlog %>" method="post">
+            <label class="d-block py-4 te fs-2 text-light text-center w-100 p-2" for="input">Enter the order code to complete an order</label>
+            <input class="d-block text-light bg-dark border shadow text-center w-50 m-auto p-2" type="text" name="codeoforder" placeholder="######">
+            <input class="d-block my-4 text-center w-25 m-auto p-2" type="submit" value="End order">
+        </form>
+    </div>
+</section>
+
+
+
+<%- include('portals/footer') %>

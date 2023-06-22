@@ -1,0 +1,23 @@
+<%- include('portals/header') %>
+<%- include('portals/adminmenu') %>
+
+
+<div class="bg-danger shadow rounded p-5" id="sel">
+    <div class="bg-dark text-center col-10 p-2 m-auto">
+        <h1 class="text-bolder text-center text-light p-4 ">Processing orders</h1>
+        <% if (orderinprocessitem.length === 0) { %>
+            <h4 class="text-bolder text-center text-light p-4 ">Order not requested</h4>
+        <% } else { %>
+            <% for (let i=0; i < orderinprocessitem.length; i++) { %>
+                <div class="my-2 p-2 bg-danger">
+                    <h3 class="col-7 d-inline-block text-light"><%= orderinprocessitem[i].name %></h3>
+                    <a class=" col-4 text-light border text-decoration-none bg-darkshadow fs-4 text-bolder rounded py-1 px-3" href="/processingorderdetails/<%= orderinprocessitem[i]._id %>"><%= orderinprocessitem[i].orderStatus %></a>
+                </div>
+            <% } %>
+        <% } %>
+        
+    </div>
+</div>
+
+
+<%- include('portals/footer') %>

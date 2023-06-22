@@ -1,0 +1,26 @@
+<%- include('portals/header') %>
+
+<div class="bg-dark boxxx">
+    <div class="col-8 m-auto">
+    <!-- <form action="/editadmin/<%= selectuserdetail._id %>" method="post"> -->
+        <div class="py-3">
+            <label for=""name class="w-50">Name:</label>
+            <input type="text" name="name" id="name" class="w-50" value="<%= selectuserdetail.addinname %>">
+        </div>
+        <div class="py-3">
+            <label for="phone" class="w-50">Phone:</label>
+            <input type="number" name="phone" id="phone" class="w-50" value="<%= selectuserdetail.addinphone %>">
+        </div>
+        <div class="py-3">
+            <label for="email" class="w-50">Email:</label>
+            <input type="email" name="email" id="email" class="w-50" value="<%= selectuserdetail.addinemail %>">
+        </div>
+        <div class="py-3">
+            <a href="/owndasboad">Back to dasboad</a>
+        </div>
+    <!-- </form> -->
+    </div>
+</div>
+
+
+

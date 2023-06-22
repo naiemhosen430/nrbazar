@@ -1,0 +1,22 @@
+<%- include('portals/header') %>
+
+<div class="">
+    <h1 class="p-4 bg-warning">Delivery your item and recive the code from customer and submit to complete the order</h1>
+    <div class="col-12 col-lg-9 m-auto p-5 shadow rounded my-4">
+        <h4 class="px-4 py-0">Product name <span class="px-5"><%= itemfordelivery.productname %></span></h4>
+        <h4 class="px-4 py-0">Product name <span class="px-5"><%= itemfordelivery.productprice %></span></h4>
+        <img class="w-25 m-4" src="/assets/images/post/<%= itemfordelivery.productfile %>" alt="">
+        <h4 class="px-4 py-0">Product name <span class="px-5"><%= confirmedorderfordeli.name %></span></h4>
+        <h4 class="px-4 py-0">Product name <span class="px-5"><%= confirmedorderfordeli.phone %></span></h4>
+        <h4 class="px-4 py-0">Product name <span class="px-5"><%= confirmedorderfordeli.address %></span></h4>
+    </div>
+    <div class="col-11 text-center my-5 bg-light p-5 m-auto col-lg-6">
+        <form class="mx-5" action="/finishorder/<%= useridforcompleteorder %>" method="post">
+            <div class="py-4">
+                <label class="d-block fs-3 w-100 p-2" for="code">Write order delivery code</label>
+                <input class="d-block rounded py-2 px-3 w-100 m-2" type="text" id="code" name="deliverycodeend" placeholder="">
+                <input class="d-block my-4 bg-dark text-light m-auto rounded shadow py-2 px-4 fs-5" type="submit" value="Finish order">
+            </div>
+        </form>
+    </div>
+</div>

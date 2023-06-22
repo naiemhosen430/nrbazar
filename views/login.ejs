@@ -1,0 +1,18 @@
+<%- include('portals/header') %>
+
+
+<div class="rounded col-12 col-lg-6 shadow m-auto my-5 py-5 p-lg-5">
+    <h1 class="p-4 text-center pt-0">Log in to your account</h1>
+    <form class="px-5" action="/login" method="post">
+        <div>
+            <label class="d-block w-100 fs-4 py-1" for="email">Write your email</label>
+            <input class="d-block w-100 px-3 fs-5 py-1" required type="email" name="email" id="email" placeholder="Write email....">
+        </div>
+        <div class="my-2">
+            <label class="d-block w-100 fs-4 py-1" for="password">Write password</label>
+            <input class="d-block w-100 px-3 fs-5 py-1" required type="password" name="password" id="password" placeholder="Write password....">
+
+        </div>
+        <button class="my-4 bg-dark text-light text-bolder py-1 px-4 rounded d-block m-auto">Login</button>
+    </form>
+</div>

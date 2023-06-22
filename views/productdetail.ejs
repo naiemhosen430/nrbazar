@@ -1,0 +1,30 @@
+<%- include('./portals/header') %>
+<%- include('portals/menu') %>
+
+<div class="w-100">
+    <div class="d-lg-flex justify-content-center">
+        <div class="m-lg-4 m-0  d-inline-block bg-light shadow p-2 col-lg-5 col-12">
+            <img style="height: 300px" class="w-100" src="/assets/images/post/<%= product.productfile %>" alt="Image not found">
+            <div class="d-flex justify-content-center">
+                <!--<span class="p-2 px-3 text-center text-bolder fs-lg-4 fs-6">product: <span>1</span></span>-->
+                <span class="p-2 px-3 text-center text-bolder fs-lg-4 fs-6">weight: <span><%= product.weath %> g</span></span>
+                <span class="p-2 px-3 text-center text-bolder fs-lg-4 fs-6">Sell: <span><%= product.totalsell %></span></span>
+                <!--<span class="p-2 px-3 text-center text-bolder fs-lg-4 fs-6">Rating: <span>4.0</span></span>-->
+            </div>
+        </div>
+        <div class="m-4 d-inline-block bg-light col-12 col-lg-5 shadow p-2                                                                                                                    col-5">
+            <h1><%= product.productname %></h1>
+            <p class="fs-5"><span class="pr-2">Description: </span><%= product.productdescription %></p>
+            <h1 class="fs-1"><span class="pr-2">Price: </span><%= product.productprice %></h1>
+            <p class="fs-5"><span class="pr-2">Area: </span><%= product.locationarea %></p>
+            <div class="text-center">
+                <a class="p-2 m-lg-4 m-0 ms-0 bg-danger text-bolder rounded text-decoration-none px-4 text-light d-inline-block" href="/order/<%= product._id %>">Order now</a>
+                <a class="p-2 m-lg-4 m-0 bg-danger text-center rounded text-decoration-none text-light px-4 d-inline-block" href="/">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('portals/footer') %>

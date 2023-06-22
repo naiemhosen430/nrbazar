@@ -1,0 +1,227 @@
+/*start slider here*/
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+
+
+
+
+
+/*---------------------
+addadmin css cide start 
+----------------------*/
+.addadmin{
+  position: absolute;
+  background: none;
+  display: none;
+}
+.cursor{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------
+admindetails css cide start 
+----------------------*/
+
+
+
+/*---------------------
+responsive css cide start 
+----------------------*/
+.menu_box{
+  display: none;
+  position: absolute;
+}
+
+.menu_button:hover > .menu_box{
+  display: block;
+  background-color: #bbb;
+}
+
+#closemenu{
+  text-align: right;
+  margin-top: -100px;
+  margin-bottom: 50px;
+  transform: rotate(45deg);
+  color: white;
+  font-size: 50px;
+}
+#slideclose{
+  text-align: right;
+  text-decoration: none;
+  margin-bottom: 100px;
+  margin-top: -140px;
+  transform: rotate(45deg);
+  color: white;
+  font-size: 50px;
+}
+
+.menu_button:hover > .menu_box {
+  display: block;
+}
+
+.exact-size:hover {
+  transition: .5s ease-out;
+  box-shadow: 0 5px 10px 0 gray;
+}
+
+.exact-size {
+  animation: 1s productanimation ;
+}
+
+@keyframes productanimation {
+  0%{
+    opacity: 0%;
+  }
+  50%{
+    opacity: 50%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .exact-size> h3{
+    font-size: 16px;
+  }
+  .exact-size{
+    height: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .exact-size> h3{
+    font-size: 16px;
+  }
+  .exact-size{
+    height: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .exact-size> h3{
+    font-size: 16px;
+  }
+  .exact-size{
+    height: 100%;
+  }
+}
+@media screen and (max-width: 1200px ) {
+  .exact-size> h3{
+    font-size: 16px;
+  }
+  .exact-size{
+    height: 100%;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .exact-size> h3{
+    font-size: 16px;
+  }
+  .exact-size{
+    height: 100%;
+  }
+}
+
+
+
+#district, #dhaka, #khulna, #secountstep, #thirtstep, #fourstepp, #rajshahi, #rangpur, #mymensingh, #sylhet, #barishal, #chattogram{
+  display: none;
+}

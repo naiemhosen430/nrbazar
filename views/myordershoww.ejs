@@ -1,0 +1,38 @@
+<%- include('portals/header') %>
+<%- include('portals/menu') %>
+
+
+
+<section>
+    <div class="col-125 col-lg-8 p-4 rounded shadow m-auto">
+        <h1 class="text-center p-4">You have searched</h1>
+        <form>
+            <input class="w-100 py-2 px-4 rounded shadow" required disabled type="text" name="showmyorderid" placeholder="<%= searchedinfo %>">
+        </form>
+    </div>
+</section>
+
+
+<section>
+    <div>
+        <% if (showmyorderhadfinded.length === 0) { %>
+            <h1 class="text-center">Sorry we don't find anything for you by <%= searchedinfo %></h1>
+        <% } else { %>
+            <h1 class="text-center">Yes! We have found <%= showmyorderhadfinded.length %> order for you by <%= searchedinfo %></h1>
+            <% for (let i=0; i< showmyorderhadfinded.length; i++) { %>
+            <div class="p-4 col-lg-8 col-12 shadow rounded m-auto my-2">
+                <h4>name: <span><%= showmyorderhadfinded[i].name %></span></h4>
+                <h4>Address: <span><%= showmyorderhadfinded[i].address %></span></h4>
+                <h4>Delivery date: <span><%= showmyorderhadfinded[i].deliverydateon %></span></h4>
+                <h4>Price: <span><%= showmyorderhadfinded[i].paymentedprice %></span></h4>
+                <h4>Phone number: <span><%= showmyorderhadfinded[i].phonenumber %></span></h4>
+                <h4>Payment code: <span><%= showmyorderhadfinded[i].paymentcode %></span></h4>
+                <h4>Order status: <span><%= showmyorderhadfinded[i].orderStatus %></span></h4>
+            </div>
+            <% } %>
+        <% } %>
+    </div>
+</section>
+
+
+<%- include('portals/footer') %>

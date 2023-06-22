@@ -1,0 +1,19 @@
+<%- include('portals/header') %>
+
+
+<div class="">
+    <div class="col-11 m-auto my-2 shadow rounded bg-light p-4">
+        <h1>Product name: <span class="px-4"><%= processingorderitem.productname %></span></h1>
+        <h1>Product description: <span class="px-4"><%= processingorderitem.productdescription %></span></h1>
+        <h1>Product total sell: <span class="px-4"><%= processingorderitem.totalsell %></span></h1>
+        <h1>Product weath: <span class="px-4"><%= processingorderitem.weath %></span></h1>
+        <h1>Paymented price: <span class="px-4"><%= orderinprocessitemm.paymentedprice %></span></h1>
+        <h1>Payment code: <span class="px-4"><%= orderinprocessitemm.paymentcode %></span></h1>
+        <h1>Phone number: <span class="px-4"><%= orderinprocessitemm.phonenumber %></span></h1>
+        <h1>Stutas: <span class="px-4"><%= orderinprocessitemm.orderStatus %></span></h1>
+        <h1>Address: <span class="px-4"><%= orderinprocessitemm.address %></span></h1>
+        <h1>Code: <span class="px-4"><%= orderinprocessitemm.deliverycompletecode %></span></h1>
+        <img style="height: 200px;" class="w-25 d-block" src="/assets/images/post/<%= processingorderitem.productfile %>" alt="">
+        <a class="d-block m-auto w-25 text-bolder text-center text-decoration-none fs-5 my-4 py-2 px-4 bg-dark text-light" href="/admindasboad/">Close</a>
+    </div>
+</div>

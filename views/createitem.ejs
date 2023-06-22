@@ -1,0 +1,74 @@
+<%- include('portals/header') %>
+
+
+
+<div class="bg-dark py-5 pt-1">
+<%- include('portals/adminmenu') %>
+    <div class="col-lg-8 col-10 m-auto p-lg-5 p-0 shadow rounded">
+        <h1 class="text-light text-bolder text-center p-4">Create an item</h1>
+        <div class="px=lg-5 px-0">
+            <form class="px-5" action="/createpost" method="post" enctype="multipart/form-data">
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="name">Write your product name</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" name="name" id="name" placeholder="Write your product name....">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="price">Write your product price</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="number" name="price" id="price" placeholder="00">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="descrip">Write your product description</label>
+                    <textarea class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" name="description" id="descrip" placeholder="Write your product description...."></textarea>
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="weath">Write your product weight</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="number" name="weath" id="weath" placeholder="Write your product weath....">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="descrip">Select your product image</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="file" id="descrip" name="file">
+                    <input class="d-none text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" id="location" value="<%= userobj.location %>" name="location">
+                    <input class="d-none text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" id="ownerid" value="<%= userobj.useridlog %>" name="ownerid">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="descrip">Write your payment recieving numbers</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" id="ownerid" name="bakashnumber" placeholder="Bakash number">
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" id="ownerid" name="nagadnumber" placeholder="Nagad number">
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" id="ownerid" name="rocketnumber" placeholder="Rocket number">
+                </div>
+                <div class="py-2 my-4">
+                    <h3 class="text-light py-2">Set your delivery price for area</h3>
+                    <div><span class="w-25 d-inline-block text-light">Dhaka</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="dhakaprice" placeholder="Write delivery fees for dhaka"></div>
+                    <div><span class="w-25 d-inline-block text-light">Chattogram</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="mymprice" placeholder="Write delivery fees for Chattogram"></div>
+                    <div><span class="w-25 d-inline-block text-light">Khulna</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="kulprice" placeholder="Write delivery fees for Khulna"></div>
+                    <div><span class="w-25 d-inline-block text-light">Rajshahi</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="rajkaprice" placeholder="Write delivery fees for Rajshahi"></div>
+                    <div><span class="w-25 d-inline-block text-light">Rangpur</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="rankaprice" placeholder="Write delivery fees for Rangpur"></div>
+                    <div><span class="w-25 d-inline-block text-light">Mymensingh</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="myprice" placeholder="Write delivery fees for Mymensingh"></div>
+                    <div><span class="w-25 d-inline-block text-light">Sylhet</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="syprice" placeholder="Write delivery fees for Sylhet"></div>
+                    <div><span class="w-25 d-inline-block text-light">Barishal</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="bhaprice" placeholder="Write delivery fees for Barishal""></div>
+                </div>
+                <div class="py-2 my-4">
+                    <h3 class="text-light py-2">Set your delivery duration for area</h3>
+                    <div><span class="w-25 d-inline-block text-light">Dhaka</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="dhakadate" placeholder="Write delivery duration for dhaka"></div>
+                    <div><span class="w-25 d-inline-block text-light">Chattogram</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="mymdate" placeholder="Write delivery duration for Chattogram"></div>
+                    <div><span class="w-25 d-inline-block text-light">Khulna</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="kuldate" placeholder="Write delivery duration for Khulna"></div>
+                    <div><span class="w-25 d-inline-block text-light">Rajshahi</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="rajkadate" placeholder="Write delivery duration for Rajshahi"></div>
+                    <div><span class="w-25 d-inline-block text-light">Rangpur</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="rankadate" placeholder="Write delivery duration for Rangpur"></div>
+                    <div><span class="w-25 d-inline-block text-light">Mymensingh</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="mydate" placeholder="Write delivery duration for Mymensingh"></div>
+                    <div><span class="w-25 d-inline-block text-light">Sylhet</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="sydate" placeholder="Write delivery duration for Sylhet"></div>
+                    <div><span class="w-25 d-inline-block text-light">Barishal</span> <input class="d-inline-block text-light bg-dark py-1 px-3 mx-2 rounded border w-50 fs-5" type="number"  name="bhadate" placeholder="Write delivery duration for Barishal""></div>
+                </div>
+
+                <div class="py-5">
+                    <input class="d-block text-light bg-warning py-1 px-3 mx-2 rounded border w-100 fs-5" type="submit" id="descrip" placeholder="Write your product description....">
+                </div>
+            </form>
+            <a class="d-block text-center" href="/admindasboad">Go to dasboad</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include('portals/footer') %>

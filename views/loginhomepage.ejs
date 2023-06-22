@@ -1,0 +1,84 @@
+<%- include('portals/header') %>
+
+<div class="container-fluid">
+
+        <!----top option start---->
+        <!-- <div class="bg-light w-100 d-flex justify-content-center">
+            <ul class="nav w-75">
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/facebook.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">Facebook</span></a></li>
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/twitter.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">Twitter</span></a></li>
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/envelope-check-fill.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">E-mail</span></a></li>
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/phone.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">Phome</span></a></li>
+            </ul>
+        </div> -->
+        <!----top option end---->
+
+
+        <!----herro section start---->
+        <div class="my-2">
+            <div class="d-lg-flex justify-content-center py-2 px-2 pb-0">
+                <div class="col-lg-5 col-12 px-4">
+                    <h3 class="fs-5 fs-lg-3">Welcome to <spa class="text-bolder">NRBazar</span></h3>
+                    <p>NRBazar is a online e-commerce website. Our everything is easy and securefull</p>
+                </div>
+            </div>
+        </div>
+        <!----herro section end---->
+
+
+        
+        <!----Start nav section---->
+        <nav class="bg-success sticky-top pb-lg-2 pb-1 text-center">
+            <div class="col-ls-3 col-3 d-inline-block">
+                <a class="text-decoration-none fs-2 text-light" href="/">NRBazar</a>
+            </div>
+            <select style="border-radius: 30px;" class="col-5 fs-lg-3 col-lg-3 d-inline-block py-1 px-lg-4 px-1" name="location" id="location">
+                <option value="all">Select your location</option>
+                <option value="Bogra">Bogra</option>
+                <option value="Bogra">Kendua</option>
+                <option value="Bogra">Netrokona</option>
+                <option value="Bogra">Tantail</option>
+                <option value="Bogra">Chattagram</option>
+            </select>
+            <div class="col-3 d-inline-block">
+                <% if (userobj.roll == "admin") { %>
+                    <a class="py-2 text-decoration-none px-4 text-bolder text-light border fs-6" href="/admindasboad">Dasboad</a>
+                <% } else if (userobj.roll == "owner") { %>
+                    <a class="py-2 text-decoration-none px-4 text-bolder text-light border fs-6" href="/owndasboad">Dasboad</a>
+                <% } else if (userobj.roll == "deliveryman") { %>
+                    <a class="py-2 text-decoration-none px-4 text-bolder text-light border fs-6" href="/memberdasboad">Dasboad</a>
+                <% } %>
+            </div>
+        </nav>
+        <!----End nav section---->    
+
+
+
+        <!----Starting main body---->
+        <div>
+            <div class="text-center">
+                <% if (postt.length === 0) { %>
+                    <h1 class="text-bolder text-center p-4 text-dark">There is no post !</h1>
+                <% } else { %>
+                    <% for (let i = 0; i < postt.length; i++) { %>
+                        <div class="shadow text-center d-inline-block m-2 m-lg-5 col-5 col-lg-3">
+                            <h1><%= postt[i].productname %></h1>
+                            <a class="w-100 h-75 d-block" href="/productdetail/<%= postt[i]._id %>">
+                                <img class="w-100 h-100" src="assets/images/post/<%= postt[i].productfile %>" alt="">
+                            </a>
+                            <div>
+                                <a class="bg-danger w-100 d-block text-decoration-none" href="/productdetail/<%= postt[i]._id %>">Order now</a>
+                            </div>
+                        </div>
+                    <% } %>
+                <% } %>
+
+
+            </div>
+        </div>
+        <!----End main body---->
+
+
+
+    </div>
+    <%- include('portals/footer') %>

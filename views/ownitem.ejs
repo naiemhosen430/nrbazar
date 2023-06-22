@@ -1,0 +1,23 @@
+<%- include('portals/header') %>
+
+
+<div class="bg-dark">
+    <%- include('portals/adminmenu') %>
+    <div class="bg-danger shadow rounded p-lg-5 p-2" id="confirm">
+        <h1 class="text-bolder text-center text-light py-4">All my items (<%= ownitem.length %>)</h1>
+        <% if (ownitem.length === 0) { %>
+            <h1 class="text-center text-light">There is no user adding</h1>
+        <% } else { %>
+            <% for (let i = 0; i < ownitem.length; i++) { %>
+            <div class="bg-dark my-2 p-2 d-flex justify-content-center">
+                <h3 class="w-lg-50 w-75 text-light d-inline-block"><%= ownitem[i].productname %></h3>
+                <a class="py-1 rounded bg-danger shadow rounded px-4 fs-5" href="/itemedit/<%= ownitem[i]._id %>">View</a>
+            </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+
+
+
+<%- include('portals/footer') %>

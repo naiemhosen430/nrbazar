@@ -1,0 +1,31 @@
+<%- include('portals/header') %>
+
+
+<div class="">
+    <div class="col-lg-8 col-12 m-auto shadow rounded my-5 p-4">
+        <h1 class="text-bolder text-center text-dark px-21">The Order has been created</h1>
+        <div class="py-4 px-5">
+            <div class="py-3 bg-info p-4">
+                <h2 class="py-2">Ordered person detaiuls</h2>
+                <h4>Name: <span><%= ordereditemdetails.name %></span></h4>
+                <h4>Delivery distination: <span><%= ordereditemdetails.address %></span></h4>
+                <h4>Phone number: <span><%= ordereditemdetails.phone %></span></h4>
+                <h4>Phone number: <span><%= ordereditemdetails.code %></span></h4>
+            </div>
+            <div class="py-3 my-2 bg-light p-4">
+                <h2 class="py-2">Product details</h2>
+                <h4>Product name: <span><%= orderedproduct.productname %></span></h4>
+                <h4>Product price: <span><%= orderedproduct.productprice %></span></h4>
+                <h4>Product id: <span><%= orderedproduct._id %></span></h4>
+                <h4>Product adress: <span><%= orderedproduct.productprice %></span></h4>
+                <h4>Product phone: <span>nai</span></h4>
+                <img class="w-50 py-4" src="/assets/images/post/<%= orderedproduct.productfile %>" alt="Not found image">
+            </div>
+            <div class="button-box text-center">
+                <a class="py-2 px-4 bg-dark text-decoration-none text-light text-bolder text-center d-inline-block mx-4 my-2 fs-5" href="/confirmorder/<%= ordereditemdetails._id %>/<%= userobj.useridlog %>">Confirm order</a>
+                <a class="py-2 px-4 bg-danger text-decoration-none text-light text-bolder text-center d-inline-block mx-4 my-2 fs-5" href="/memberdasboad">Decine order</a>
+                <a class="d-block my-4" href="/">Back to dasboad</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<%- include('portals/header') %>
+
+<div class="bg-dark">
+    <a class="text-light d-block text-bolder text-center p-4" href="/memberdasboad">Go to dasboad</a>
+<div class="bg-danger shadow rounded p-5" id="confirm">
+    <h1 class="text-bolder text-center py-5 text-light">Placed order. Please confirm to do the delivey</h1>*
+    <% if (seeorderall.length === 0) { %>
+        <h1 class="fs-4 text-center bg-warning p-4 text-light">There is no order right mow. Please wait for an order created.</h1>
+    <% } else { %>
+    <% for ( let i = 0; i < seeorderall.length; i++ ) { %>
+        <div class="bg-dark my-2 p-2 d-flex justify-content-center">
+            <h3 class="w-75 text-light d-inline-block"><%=  seeorderall[i].name %></h3>
+            <a class="py-1 rounded bg-danger shadow rounded px-4 fs-5" href="/createdorderdetails/<%= seeorderall[i]._id %>">View</a>
+        </div>
+    <% } %>
+    <% } %>
+
+</div>
+</div>
+
+
+<%- include('portals/footer') %>

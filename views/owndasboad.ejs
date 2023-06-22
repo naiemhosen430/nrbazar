@@ -1,0 +1,131 @@
+<%- include('portals/header') %>
+
+<div class="w-100 box addadmin p-lg-5 p-2" id="admindetail">
+    <div class="col-lg-5 col-10 shadow box px-5 bg-dark rounded m-auto p-4" id="addadminscbox">
+        <h1 class="text-light text-center text-bolder py-4">Add an admin</h1>
+        <form class="px-lg-4 px-0" action="/addadmin" method="post">
+            <div class="my-3">
+                <label class="d-block py-1 fs-4 text-light" for="name">Write admin's full name</label>
+                <input class="d-block w-100 bg-dark rounded shadow border my-1 fs-5 py-2 px-3 text-light" required type="text" id="name" name="name" placeholder="Write admin's name....">
+            </div>
+            <div class="my-3">
+                <label class="d-block py-1 fs-4 text-light" for="email">Write admin's email</label>
+                <input class="d-block w-100 bg-dark rounded shadow border my-1 fs-5 py-2 px-3 text-light" required type="email" id="email" name="email" placeholder="Write admin's email....">
+            </div>
+            <div class="my-3">
+                <label class="d-block py-1 fs-4 text-light" for="location">Write admin's location</label>
+                <input class="d-block w-100 bg-dark rounded shadow border my-1 fs-5 py-2 px-3 text-light" required type="location" id="location" name="location" placeholder="Write admin's location....">
+            </div>
+            <div class="my-3">
+                <label class="d-block py-1 fs-4 text-light" for="phone">Write admin's phone number</label>
+                <input class="d-block w-100 bg-dark rounded shadow border my-1 fs-5 py-2 px-3 text-light" required type="text" id="phone" name="phone" placeholder="Write admin's phone number....">
+            </div>
+            <div class="my-3">
+                <label class="d-block py-1 fs-4 text-light" for="password">Write admin's password</label>
+                <input class="d-block w-100 bg-dark rounded shadow border my-1 fs-5 py-2 px-3 text-light" required type="password" id="password" name="password" placeholder="Write admin's password....">
+            </div>
+            <div class="my-3 text-center">
+                <span class="col-3 d-inline-block cencel mx-4 cursor bg-danger text-light rounded shadow py-1 fs-5">Cencel</span>
+                <input class="col-3 bg-danger mx-4 text-light rounded shadow py-1 fs-5" required type="submit" value="Add">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<div class="bg-dark py-5">
+    <div class="d-flex justify-content-center">
+        <div class="col-3 mx-2 d-inline-block p-4 bg-danger shadow rounded">
+            <div>
+                <div class="">
+                    <!-- <a style="cursor: pointer;" class="nav-item d-block w-100 cursor-pointer text-light" id="slideclose" onclick="closemenu()">+</a> -->
+                    <div id="slidebox">
+                        <a style="cursor: pointer;" class="text-decoration-none d-block py-2 text-center text-light fs-5 text-bolder bg-dark my-3 rounded shadow" onclick="openaddadminbox()">ADD user</a>
+                        <a style="cursor: pointer;" class="text-decoration-none d-block py-2 text-center text-light fs-5 text-bolder bg-dark my-3 rounded shadow">All adminuser</a>
+                        <a style="cursor: pointer;" class="text-decoration-none d-block py-2 text-center text-light fs-5 text-bolder bg-dark my-3 rounded shadow">ADD user</a>
+                        <a style="cursor: pointer;" class="text-decoration-none d-block py-2 text-center text-light fs-5 text-bolder bg-dark my-3 rounded shadow">ADD user</a>
+                        <a style="cursor: pointer;" class="text-decoration-none d-block py-2 text-center text-light fs-5 text-bolder bg-dark my-3 rounded shadow">ADD user</a>
+                        <a style="cursor: pointer;" class="text-decoration-none d-block py-2 text-center text-light fs-5 text-bolder bg-dark my-3 rounded shadow" href="/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 mx-2 d-inline-block p-4 bg-danger shadow rounded">
+            <div class="d-block p-4 bg-dark">
+                <h1 class="text-center text-light py-4">All adminuser</h1>
+                <% if ( adminuser.length === 0 ) { %>
+                    <h1 class="text-center text-light">There is no user adding</h1>
+                <% } else { %>
+                    <% for (let i=0; i < adminuser.length; i++) { %>
+                    <div class="col-10 m-auto my-3 py-2 px-4 bg-danger rounded shadow">
+                            <span class="d-inline-block col-7 text-light"><%= adminuser[i].name %></span>
+                            <div class="d-inline-block text-center col-4">
+                                <a href="/adminuserview/<%= adminuser[i]._id %>"><button class="bg-dark mx-2 text-light rounded shadow py-1 px-4" onclick="openvbox()">View</button></a>
+                                <button class="bg-dark mx-2 text-light rounded shadow py-1 px-4">Edit</button>
+                            </div>
+                        </div>
+                    <% } %>    
+                    <% } %>
+
+            
+            </div>
+
+
+
+
+            <div class="d-block p-4 bg-dark">
+                <h1 class="text-center text-light py-4">Payment</h1>
+                <div class="bg-danger p-4">
+                    <h2 class="text-center text-bolder text-light">Main balance</h2>
+                    <div class="">
+                        <span class="fs-3 text-bolder text-center text-light d-block">500$</span>
+                    </div>
+                </div>
+                <div class="bg-danger p-4">
+                    <h4 class="text-center text-bolder text-light">In this month</h4>
+                    <div class="">
+                        <span class="fs-4 text-bolder text-center text-light d-block">500$</span>
+                    </div>
+                </div>
+                <div class="bg-danger p-4">
+                    <h4 class="text-center text-bolder text-light">In this year</h4>
+                    <div class="">
+                        <span class="fs-4 text-bolder text-center text-light d-block">500$</span>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //addadmin dasboad js code
+document.querySelector(".cencel").addEventListener("click", hidebox);
+function hidebox() {
+    document.querySelector(".box").style.display= "none";
+}
+
+function openaddadminbox() {
+    document.querySelector(".box").style.display= "block";
+}
+
+function openvbox() {
+    document.querySelector(".vbox").style.display= "inline-block";
+}
+
+function closevbox() {
+    document.querySelector(".vbox").style.display= "none";
+}
+
+function closemenu() {
+        closevbox.style.display = "none";
+}
+
+</script>
+
+
+

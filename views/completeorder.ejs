@@ -1,0 +1,23 @@
+<%- include('portals/header') %>
+
+
+<div>
+    <h1 class="text-center text-light bg-success p-4">Congratulation! your order has sucessfully created.</h1>
+    <h4 class="text-center text-light bg-info p-4">Please take a screenshot or save the delivery code. It's very importent to recive the product</h4>
+    <div class="col-lg-6 col-12 m-auto shadow p-4">
+        <h3>Name: <span><%= deliveryitemfordeliver.productname %></span></h3>
+        <h3>price: <span><%= deliveryitemfordeliver.productprice %></span></h3>
+        <img class="w-25" src="assets/images/post/<%= deliveryitemfordeliver.productfile %>" alt="">
+        <h3>Name: <span><%= createorder.name %></span></h3>
+        <h3>Adress: <span><%= createorder.address %></span></h3>
+        <h3>Phone number: <span><%= createorder.phonenumber %></span></h3>
+        <h3>Product: <span>1</span></h3>
+        <h3><%= createorder.deliverydateon %></h3>
+    </div>
+    <div class="text-center m-5">
+        <a class="bg-dark py-2 px-4 m-4 text-light text-decoration-none rounded" href="/">Back to home</a>
+        <a class="bg-dark py-2 px-4 m-4 text-light text-decoration-none rounded" href="/help">Get help</a>
+    </div>
+</div>
+
+

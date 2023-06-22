@@ -1,0 +1,40 @@
+<%- include('portals/header') %>
+
+
+
+<div class="bg-dark py-5">
+    <div class="col-lg-8 col-11 m-auto p-lg-5 p-0 shadow rounded">
+        <h1 class="text-light text-bolder text-center p-4">Edit or delete the item</h1>
+        <div class="px-lg-5 px-0">
+            <form class="px-5" action="/updateitem/<%= selectitemforedit._id %>" method="get" enctype="multipart/form-data">
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="name">Update your product name</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" type="text" value="<%= selectitemforedit.productname %>" name="name" id="name" placeholder="Write your product name....">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="price">Update your product price</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" type="number" value="<%= selectitemforedit.productprice %>" name="price" id="price" placeholder="00">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="descrip">Update your product description</label>
+                    <textarea class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" type="text" value="" name="description" id="descrip" placeholder="Write your product description...."><%= selectitemforedit.productdescription %></textarea>
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="descrip">Update your product image</label>
+                    <img src="assets/images/post/<%= selectitemforedit.productfile %>" alt="no image here">
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" type="file" value="<%= selectitemforedit.productfile %>" id="descrip" name="file">
+                </div>
+                <div class="py-5">
+                    <input class="d-block text-light bg-warning py-1 px-3 mx-2 rounded border w-100 fs-5" type="submit" id="descrip" value="Update item">
+                    <a style="text-decoration: none;" class="text-bolder text-light text-center fs-5 py-2 m-2 px-4 w-100 border d-block" href="/deleteitem/<%= selectitemforedit._id %>">Delete item</a>
+                </div>
+            </form>
+            <a class="d-block text-center" href="/admindasboad">Go to dasboad</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include('portals/footer') %>

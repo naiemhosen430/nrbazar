@@ -1,0 +1,82 @@
+<%- include('portals/header') %>
+
+<div class="container-fluid">
+
+        <!----top option start---->
+        <!-- <div class="bg-light w-100 d-flex justify-content-center">
+            <ul class="nav w-75">
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/facebook.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">Facebook</span></a></li>
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/twitter.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">Twitter</span></a></li>
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/envelope-check-fill.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">E-mail</span></a></li>
+                <li class="col-3 nav-item d-flex"><a class="nav-link py-1" href="#"><img class="col-2 d-inline-block" src="assets/icon/bootstrap-icons-1.9.1/phone.svg" alt=""><span class="col-8 ps-1 d-lg-inline-block  text-dark" style="font-size: 15px;">Phome</span></a></li>
+            </ul>
+        </div> -->
+        <!----top option end---->
+
+
+        <!----herro section start---->
+        <div class="my-2">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img style="height: 120px;" src="assets\images\banner\banner1.jpeg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img style="height: 120px;" src="assets\images\banner\banner1.jpeg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img style="height: 120px;" src="assets\images\banner\banner1.jpeg" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <!----herro section end---->
+
+
+        <%- include('portals/menu') %>
+        <a class="d-inline-block py-1 px-4 bg-dark text-bolder text-center text-light shadow rounded text-decoration-none" href="/seemyorderihave">Find my order</a>
+
+
+
+        <!----Starting main body---->
+        <div>
+            <div class="text-center p4-2">
+                <% if (post.length === 0) { %>
+                    <h1 class="text-bolder text-center p-4 text-dark">There is no post !</h1>
+                <% } else { %>
+                    <% for (let i = 0; i < post.length; i++) { %>
+                        <div class="exact-size bg-light text-center d-inline-block m-lg-2 m-2 col-md-3 col-5 col-lg-2">
+                            <h3 class="text-muted fs-lg-3 d-none"><%= post[i].productname %> <span class="fs-6 d-block fs-lg-5">(<%= post[i].locationarea %>)</span></h3>
+                            <h3 class="text-muted fs-lg-3">Price: <%= post[i].productprice %> <span class="fs-6 d-block fs-lg-5">Sell: (<%= post[i].totalsell %>)</span></h3>
+                            <a class="w-100 d-block" href="/productdetail/<%= post[i]._id %>">
+                                <img class="w-100 d-block" src="assets/images/post/<%= post[i].productfile %>" alt="">
+                            </a>
+                            <div>
+                               <h6><%= post[i].productname %></h6>
+                            </div>
+                        </div>
+                    <% } %>
+                <% } %>
+
+
+            </div>
+        </div>
+        <!----End main body---->
+
+
+
+    </div>
+    <%- include('portals/footer') %>

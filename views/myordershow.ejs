@@ -1,0 +1,19 @@
+<%- include('portals/header') %>
+<%- include('portals/menu') %>
+
+
+
+<section>
+    <div class="col-125 col-lg-8 p-4 rounded shadow m-auto">
+        <h1 class="text-center p-4">Search your order by order ID</h1>
+        <form action="/showmyorder" method="post">
+            <input class="w-100 py-2 px-4 rounded shadow" required type="text" name="showmyorderid">
+            <input class="d-block my-4 m-auto py-2 px-4 text-light bg-dark" type="submit" value="Search">
+        </form>
+    </div>
+</section>
+
+
+
+
+<%- include('portals/footer') %>

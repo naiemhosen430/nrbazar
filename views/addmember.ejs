@@ -1,0 +1,41 @@
+<%- include('portals/header') %>
+
+
+
+<div class="bg-dark py-5 pt-1">
+    <%- include('portals/adminmenu') %>
+    <div class="col-lg-8 col-10 m-auto p-lg-5 p-0 shadow rounded">
+        <h1 class="text-light text-bolder text-center p-4">Add a member</h1>
+        <div class="px-lg-5 px-0">
+            <form class="px-5" action="/addmemberpost" method="post">
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="name">Write member name</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" name="name" id="name" placeholder="Add member name....">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="phone">Write member's phone number</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="number" id="phone" name="phone" placeholder="017********">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="email">Write member's email</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="email" id="email" name="email" placeholder="sample@gmail.com">
+                </div>
+                <div class="py-2">
+                    <label class="d-block text-light text-bolder fs-4 p-2" for="password">Write member's password</label>
+                    <input class="d-block text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="password" id="password" name="password" placeholder="write his password...">
+                    <input class="d-none text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" id="underadmin" value="<%= userobj.useridlog %>" name="underadmin" placeholder="write his underadmin...">
+                    <input class="d-none text-light bg-dark py-1 px-3 mx-2 rounded border w-100 fs-5" required type="text" id="location" value="<%= userobj.location %>" name="location" placeholder="write his location...">
+                </div>
+
+                <div class="py-5">
+                    <input class="d-block text-light bg-warning py-1 px-3 mx-2 rounded border w-100 fs-5" type="submit" id="descrip" value="Add seller">
+                </div>
+            </form>
+            <a class="d-block text-center" href="/admindasboad">Go to dasboad</a>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('portals/footer') %>

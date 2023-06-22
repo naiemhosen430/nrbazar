@@ -1,0 +1,415 @@
+<%- include('portals/header') %>
+<%- include('portals/menu') %>
+
+<div class="pb-5">
+    <div class="text-center m-auto shadow p-4 mt-5 col-12 col-lg-6">
+        <h1 class="bg-info py-2">Your selected item</h1>
+        <div class="d-flex justify-content-center">
+            <img style="height: 120px;" class="m-2 col-4 w-25 d-inline-block" src="/assets/images/post/<%= selectitem.productfile %>" alt="">
+            <div class="mx-2 col-8 d-inline-block">
+                <h3 class=""><%= selectitem.productname %></h3>
+                <h4 class="">Product price: <input disabled value="<%= selectitem.productprice %>" class="d-inline border-none w-25" type="number" id="mainselectprice" placeholder="<%= selectitem.productprice %>"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="m-auto shadow p-4 mt-5 col-12 col-lg-6">
+        <form method="post" action="/createorder">
+            <div class="my-4">
+                
+                <label class="d-block px-5 fs-4 p-2" for="area">See when will be the delivery</label>
+                <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="aredateshow()" name="areadate" id="areadate">
+                    <option disabled selected>Selext</option>
+                    <option value="<%= selectitem.deliverydate[0].shakadate %>">Dhaka</option>
+                    <option value="<%= selectitem.deliverydate[0].chattogramdate %>">Chattogram</option>
+                    <option value="<%= selectitem.deliverydate[0].khulnadate %>">Khulna</option>
+                    <option value="<%= selectitem.deliverydate[0].rajshahidate %>">Rajshahi</option>
+                    <option value="<%= selectitem.deliverydate[0].rangpurdate %>">Rangpur</option>
+                    <option value="<%= selectitem.deliverydate[0].mymensinghdate %>">Mymensingh</option>
+                    <option value="<%= selectitem.deliverydate[0].sylhetdate %>">Sylhet</option>
+                    <option value="<%= selectitem.deliverydate[0].barishaldate %>">Barishal</option>
+                </select>
+            </div>
+            <div class="my-4 mx-5">
+                <h3 id="deliverydate"></h3>
+                <input class="d-none" type="text" name="deliverydateon" required value="" id="deliverydatee">
+            </div>
+            <div class="my-4" id="secountstep">
+                
+                <label class="d-block px-5 fs-4 p-2" for="area">Select a available area</label>
+                <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="pricechange()" name="area" id="area">
+                    <option disabled selected>Selext</option>
+                    <option value="<%= selectitem.pricetable[0].shakaprice %>">Dhaka</option>
+                    <option value="<%= selectitem.pricetable[0].chattogramprice %>">Chattogram</option>
+                    <option value="<%= selectitem.pricetable[0].khulnaprice %>">Khulna</option>
+                    <option value="<%= selectitem.pricetable[0].rajshahiprice %>">Rajshahi</option>
+                    <option value="<%= selectitem.pricetable[0].rangpurprice %>">Rangpur</option>
+                    <option value="<%= selectitem.pricetable[0].mymensinghprice %>">Mymensingh</option>
+                    <option value="<%= selectitem.pricetable[0].sylhetprice %>">Sylhet</option>
+                    <option value="<%= selectitem.pricetable[0].barishalprice %>">Barishal</option>
+                </select>
+            </div>
+            <div id="thirtstep">
+                <div class="my-4 d-none">
+                    <label class="d-block px-5 fs-4 p-2" for="prouctid">Your delivery fees</label>
+                    <input class="d-block w-75 px-4 mx-5 fs-5 p-2" type="text" name="prouctid" value="<%= selectitem._id %>" id="prouctid" placeholder="Select area please">
+                </div>
+                <div class="my-4">
+                    <label class="d-block px-5 fs-4 p-2" for="deliveryprice">Your delivery fees</label>
+                    <input class="d-block w-75 px-4 mx-5 fs-5 p-2" disabled type="text" name="deliverfees" id="deliveryprice" placeholder="Select area please">
+                    <input class="d-block d-none w-75 px-4 mx-5 fs-5 p-2" type="text" name="deliverfees" id="deliverypriceen" placeholder="Select area please">
+                    <input class="d-none" type="text" value="<%= selectitem.productprice %>" name="producctprice">
+                </div>
+                <div class="my-4">
+                    <label class="d-block px-5 fs-4 p-2" for="mainprice">Total price</label>
+                    <h1 class="d-block w-75 px-4 mx-5 fs-5 p-2" id="mainprice">Select your area</h1>
+                </div>
+                <div class="my-4">
+                    <div  class="p-4 bg-info">
+                        <h5>Pay <span id="mainpricee"></span> taka by bottom numbers</h5>
+                        <div>
+                            <h4>Bkash: <span><%= selectitem.bakashnumber %></span></h4>
+                            <h4>Nagad: <span><%= selectitem.nagadnumber %></span></h4>
+                            <h4>Rocket: <span><%= selectitem.rocketnumber %></span></h4>
+                        </div>
+                    </div>
+                </div>
+                <button class="py-2 px-4 m-auto d-block bg-dark text-light rounded shadow" onclick="showfourstep()" id="">Continue</button>
+            </div>
+
+
+            <div id="fourstepp">
+                <div class="my-4">
+                    <label class="d-block px-5 fs-4 p-2" for="name">Enter your full name</label>
+                    <input class="d-block w-75 px-4 mx-5 fs-5 p-2" required type="text" name="orderername" value="" id="name" placeholder="Write your name">
+                </div>
+                <div class="my-4">
+                    <label class="d-block px-5 fs-4 p-2" for="phonenumber">Enter your paymented phone number</label>
+                    <input class="d-block w-75 px-4 mx-5 fs-5 p-2" required type="text" name="phonenumber" value="" id="phonenumber" placeholder="Write your phone number">
+                    <input class="d-none w-75 px-4 mx-5 fs-5 p-2" required type="text" name="owneridfororder" value="<%= selectitem.ownerid %>" >
+                </div>
+    
+    
+                <div class="my-4">
+                    <label class="d-block px-5 fs-4 p-2" for="paymentcode">Enter payment code</label>
+                    <input class="d-block w-75 px-4 mx-5 fs-5 p-2" required type="text" name="paymentcode" value="" id="paymentcode" placeholder="">
+                </div>
+                <!-----division----->
+                <div class="my-4 " id="district">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your division</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="divisiontodistrict()" name="divisiovalue" id="divisiovalue">
+                        <option disabled selected>Select</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chattogram">Chattogram</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                        <option value="Sylhet">Sylhet</option>
+                        <option value="Barishal">Barishal</option>
+                    </select>
+                </div>
+    
+    
+    
+    
+                <!----district--->
+                <div class="my-4 " id="dhaka">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="districtvalue" id="dhakadistrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Gazipur">Gazipur</option>
+                        <option value="Kishoreganj">Kishoreganj</option>
+                        <option value="Manikganj">Manikganj</option>
+                        <option value="Munshiganj">Munshiganj</option>
+                        <option value="Narayanganj">Narayanganj</option>
+                        <option value="Narsingdi">Narsingdi</option>
+                        <option value="Tangail">Tangail</option>
+                        <option value="Faridpur">Faridpur</option>
+                        <option value="Gopalganj">Gopalganj</option>
+                        <option value="Madaripur">Madaripur</option>
+                        <option value="Rajbari">Rajbari</option>
+                        <option value="Shariatpur">Shariatpur</option>
+                    </select>
+                </div>
+                <div class="my-4 " id="chattogram">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="districtvalue" id="ctgdistrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Brahmanbaria">Brahmanbaria</option>
+                        <option value="Comilla">Comilla</option>
+                        <option value="Chandpur">Chandpur</option>
+                        <option value="Lakshmipur">Lakshmipur</option>
+                        <option value="Maijdee">Maijdee</option>
+                        <option value="Feni">Feni</option>
+                        <option value="Khagrachhari">Khagrachhari</option>
+                        <option value="Rangamati">Rangamati</option>
+                        <option value="Bandarban">Bandarban</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Cox's Bazar">Cox's Bazar</option>
+                    </select>
+                </div>
+                <div class="my-4 " id="khulna">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="districtvalue" id="kuldictrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Bagherhat">Bagherhat</option>
+                        <option value="Sathkhira">Sathkhira</option>
+                        <option value="Jessore">Jessore</option>
+                        <option value="Magura">Magura</option>
+                        <option value="Jhenaidah">Jhenaidah</option>
+                        <option value="Narail">Narail</option>
+                        <option value="Kushtia">Kushtia</option>
+                        <option value="Chuadanga">Chuadanga</option>
+                        <option value="Meherpur">Meherpur</option>
+                    </select>
+                </div>
+                <div class="my-4 " id="rajshahi">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="districtvalue" id="rajdictrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Natore">Natore</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Sirajganj">Sirajganj</option>
+                        <option value="Pabna">Pabna</option>
+                        <option value="Bogura">Bogura</option>
+                        <option value="Chapainawabganj">Chapainawabganj</option>
+                        <option value="Naogaon">Naogaon</option>
+                        <option value="Joypurhat">Joypurhat</option>
+                    </select>
+                </div>
+                <div class="my-4 " id="rangpur">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="districtvalue" id="randictrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Dinajpur">Dinajpur</option>
+                        <option value="Kurigram">Kurigram</option>
+                        <option value="Gaibandha">Gaibandha</option>
+                        <option value="Lalmonirhat">Lalmonirhat</option>
+                        <option value="Nilphamar">Nilphamar</option>
+                        <option value="Panchagarh">Panchagarh</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Thakurgaon">Thakurgaon</option>
+                    </select>
+                </div>
+                <div class="my-4 " id="mymensingh">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="districtvalue" id="mymdictrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                        <option value="Jamalpur">Jamalpur</option>
+                        <option value="Netrokona">Netrokona</option>
+                        <option value="Sherpur">Sherpur</option>
+                    </select>
+                </div>
+                <div class="my-4 " id="sylhet">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="districtvalue" id="syldictrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Habiganj">Habiganj</option>
+                        <option value="Moulvibazar">Moulvibazar</option>
+                        <option value="Sunamganj">Sunamganj</option>
+                        <option value="Sylhet">Sylhet</option>
+                    </select>
+                </div>
+                <div class="my-4 " id="barishal">
+                    
+                    <label class="d-block px-5 fs-4 p-2" for="area">Select Your district</label>
+                    <select class="d-block  mx-5 w-75 fs-5 p-2" onchange="districttoupozella()" name="bardictrictvalue" id="bardictrictvalue">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Barisal">Barisal</option>
+                        <option value="Barguna">Barguna</option>
+                        <option value="Bhola">Bhola</option>
+                        <option value="Jhalokati">Jhalokati</option>
+                        <option value="Pirojpur ">Pirojpur </option>
+                        <option value="Patuakhali ">Patuakhali </option>
+                    </select>
+                </div>
+    
+    
+                <div class="my-2">
+                    <label class="d-block px-5 fs-4 p-2" for="deliveryaddress">Enter your upozela/ union/ home adress</label>
+                    <input class="d-block w-75 px-4 mx-5 fs-5 p-2" required type="text" name="extraadress" onkeyup="extraadressover()" value="" id="extraadress" placeholder="Upozela/ Unio/ Home adress">
+                </div>
+    
+                <div class="my-2">
+                    <label class="d-block px-5 fs-4 p-2" for="deliveryaddress">Enter full address details</label>
+                    <input class="d-none w-75 px-4 mx-5 fs-5 p-2" required type="text" name="deliveryaddress" value="" id="finaladress" placeholder="House no/ town/ city/ upozela/ zela/ devition">
+                </div>
+                <h6 class="px-5" id="finaladresss"></h6>
+                <input class="text-center text-light text-center d-block m-auto my-3 py-2 px-4 rounded shadow bg-dark fs-5" type="submit" value="Request for order">
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+<script>
+    
+
+function showfourstep() {
+    fourstepp.style.display= "block"
+}
+
+
+function pricechange(){
+    deliveryprice.value= area.value;
+
+    let pricee = mainselectprice.value;
+    let totalprice = (+pricee);
+    mainprice.innerHTML = totalprice ;
+    mainpricee.innerHTML = area.value ;
+    
+    district.style.display= "block";
+    thirtstep.style.display= "block";
+}
+
+function aredateshow() {
+    const deliverydateon = +areadate.value
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1; // getMonth() returns 0-11
+    const year = today.getFullYear();
+
+    deliverydatee.value = `Your product will be delivered on ${day+deliverydateon}/${month}/${year}`
+    deliverydate.innerHTML= `Your product will be delivered on ${day+deliverydateon}/${month}/${year}`;
+    secountstep.style.display= "block"
+}
+
+
+
+
+function divisiontodistrict() {
+    if (divisiovalue.value === "Dhaka") {
+        dhaka.style.display = "block"
+        chattogram.style.display = "none"
+        khulna.style.display = "none"
+        rajshahi.style.display = "none"
+        rangpur.style.display = "none"
+        mymensingh.style.display = "none"
+        sylhet.style.display = "none"
+        barishal.style.display = "none"
+    } else if (divisiovalue.value === "Chattogram") {
+        dhaka.style.display = "none"
+        chattogram.style.display = "block"
+        khulna.style.display = "none"
+        rajshahi.style.display = "none"
+        rangpur.style.display = "none"
+        mymensingh.style.display = "none"
+        sylhet.style.display = "none"
+        barishal.style.display = "none"
+    } else if (divisiovalue.value === "Khulna") {
+        dhaka.style.display = "none"
+        chattogram.style.display = "none"
+        khulna.style.display = "block"
+        rajshahi.style.display = "none"
+        rangpur.style.display = "none"
+        mymensingh.style.display = "none"
+        sylhet.style.display = "none"
+        barishal.style.display = "none"
+    } else if (divisiovalue.value === "Rajshahi") {
+        dhaka.style.display = "none"
+        chattogram.style.display = "none"
+        khulna.style.display = "none"
+        rajshahi.style.display = "block"
+        rangpur.style.display = "none"
+        mymensingh.style.display = "none"
+        sylhet.style.display = "none"
+        barishal.style.display = "none"
+    } else if (divisiovalue.value === "Rangpur") {
+        dhaka.style.display = "none"
+        chattogram.style.display = "none"
+        khulna.style.display = "none"
+        rajshahi.style.display = "none"
+        rangpur.style.display = "block"
+        mymensingh.style.display = "none"
+        sylhet.style.display = "none"
+        barishal.style.display = "none"
+    } else if (divisiovalue.value === "Mymensingh") {
+        dhaka.style.display = "none"
+        chattogram.style.display = "none"
+        khulna.style.display = "none"
+        rajshahi.style.display = "none"
+        rangpur.style.display = "none"
+        mymensingh.style.display = "block"
+        sylhet.style.display = "none"
+        barishal.style.display = "none"
+    } else if (divisiovalue.value === "Sylhet") {
+        dhaka.style.display = "none"
+        chattogram.style.display = "none"
+        khulna.style.display = "none"
+        rajshahi.style.display = "none"
+        rangpur.style.display = "none"
+        mymensingh.style.display = "none"
+        sylhet.style.display = "block"
+        barishal.style.display = "none"
+    } else if (divisiovalue.value === "Barishal") {
+        dhaka.style.display = "none"
+        chattogram.style.display = "none"
+        khulna.style.display = "none"
+        rajshahi.style.display = "none"
+        rangpur.style.display = "none"
+        mymensingh.style.display = "none"
+        sylhet.style.display = "none"
+        barishal.style.display = "block"
+    }
+    finaladresss.innerHTML= divisiovalue.value
+    finaladress.value= divisiovalue.value
+}
+
+
+function districttoupozella() {
+    const divition = divisiovalue.value
+    const dhak = dhakadistrictvalue.value || ""
+    const chatt = ctgdistrictvalue.value || ""
+    const kuln = kuldictrictvalue.value || ""
+    const rajs = rajdictrictvalue.value || ""
+    const ranp = randictrictvalue.value || ""
+    const myme = mymdictrictvalue.value || ""
+    const syll = syldictrictvalue.value || ""
+    const barr = bardictrictvalue.value || ""
+    finaladresss.innerHTML= `${divition} / ${dhak}${chatt}${kuln}${rajs}${ranp}${myme}${syll}${barr} `
+    finaladress.value= `${divition} / ${dhak}${chatt}${kuln}${rajs}${ranp}${myme}${syll}${barr} `
+}
+
+
+
+function extraadressover() {
+    const divition = divisiovalue.value
+    const extraadresss = extraadress.value
+   
+    const dhak = dhakadistrictvalue.value || ""
+    const chatt = ctgdistrictvalue.value || ""
+    const kuln = kuldictrictvalue.value || ""
+    const rajs = rajdictrictvalue.value || ""
+    const ranp = randictrictvalue.value || ""
+    const myme = mymdictrictvalue.value || ""
+    const syll = syldictrictvalue.value || ""
+    const barr = bardictrictvalue.value || ""
+    finaladresss.innerHTML= `${divition} / ${dhak}${chatt}${kuln}${rajs}${ranp}${myme}${syll}${barr} / ${extraadresss} `
+    finaladress.value= `${divition} / ${dhak}${chatt}${kuln}${rajs}${ranp}${myme}${syll}${barr} / ${extraadresss} `
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

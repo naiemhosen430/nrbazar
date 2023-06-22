@@ -1,0 +1,26 @@
+<%- include('portals/header') %>
+<%- include('portals/menu') %>
+
+
+<div class="bg-dark">
+    <div class="col-8 m-auto p-4 shadow rounded">
+        <div class="text-center">
+            <img class="w-25 circle" src="" alt="">
+        </div>
+        <div class="d-block col-3 m-auto">
+            <a class="px-4 py-2 bg-ilight text-light fs-4 text-decoration-none" href="/editprofile/<%= selecte3duser._id %>">Edit profile</a>
+        </div>
+        <div class="text-center">
+            <h1 class="text-light"><%= selecte3duser.name %></h1>
+            <h4 class="text-info"><%= selecte3duser.bio %></h4>
+            <p class="text-info"><%= selecte3duser.bio %></p>
+            <p class="text-info"><%= selecte3duser.email %></p>
+            <p class="text-info"><%= selecte3duser.phone %></p>
+            <p class="text-info"><%= selecte3duser.roll %></p>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('portals/footer') %>

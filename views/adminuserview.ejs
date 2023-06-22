@@ -1,0 +1,27 @@
+<%- include('portals/header') %>
+<%- include('portals/menu') %>
+
+
+<div class="bg-dark">
+    <div class="col-lg-5 col-12 m-auto p-4 shadow rounded">
+        <div class="text-center">
+            <img class="w-25 circle" src="" alt="">
+        </div>
+
+        <div class="">
+            <h1 class="text-light">Name: <%= seletedadminforview.name %></h1>
+            <h4 class="text-info">Tittle: <%= seletedadminforview.bio %></h4>
+            <p class="text-info">Bio: <%= seletedadminforview.bio %></p>
+            <p class="text-info">Email: <%= seletedadminforview.email %></p>
+            <p class="text-info">Location: <%= seletedadminforview.location %></p>
+            <p class="text-info">Phone number: <%= seletedadminforview.phone %></p>
+            <p class="text-info">Main balance: <%= seletedadminforview.mailbalance %></p>
+            <p class="text-info mb-5">Roll: <%= seletedadminforview.roll %></p>
+        </div>
+        <a class="text-bolder text-center text-decoration-none text-light py-2 my-3 px-4 border rounded shadow fs-4 d-block m-auto" href="/owndasboad">Close</a>
+    </div>
+</div>
+
+
+
+<%- include('portals/footer') %>
